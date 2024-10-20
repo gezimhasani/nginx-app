@@ -13,9 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run a one-line script
-        run: echo Hello, world!
-
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
@@ -25,3 +22,9 @@ jobs:
         run: |
           minikube start
           kubectl config use-context minikube
+
+      - name: Install Prometheus
+        run: helm install prometheus prometheus --namespace=monitoring
+
+      - name: Install Grafana
+        run: helm install grafana grafana --namespace=monitoring
