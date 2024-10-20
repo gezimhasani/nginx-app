@@ -20,3 +20,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      - name: Start Minikube
+        run: |
+          minikube start
+          kubectl config use-context minikube
